@@ -51,6 +51,7 @@ my_df = my_df.sort_values(by=['department_id','user_id'])
 """
 
 ###window function rolling average
+"""
 my_df = pd.DataFrame({'users':[1,1,1,1,1,2,2,2,3,3,3,3,4,],'values': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55,pd.NA,10,1]}).sort_values(by=['users'])
 my_df = my_df.astype({'values':'Int64'}) #without this type cast, numeric aggregation will fail with NaN values
 #print(my_df)
@@ -59,3 +60,9 @@ my_df['past_3d_avg'] = my_df.groupby(by=['users'])['values'].rolling(window=3,mi
 my_df['running_sum']=my_df.groupby(by=['users'])['values'].cumsum().reset_index(drop=True)
 my_df['value_rank'] = my_df.sort_values(by=['values'],ascending=[False]).groupby(by=['users'])['values'].rank().reset_index(drop=True)
 print(my_df)
+"""
+
+df1 = pd.DataFrame({"A": [0, 0], "B": [None, 4]})
+df2 = pd.DataFrame({"C": [1, 1], "D": [3, 3]})
+ans = pd.concat([df1, df2], axis=1)
+print(ans)
