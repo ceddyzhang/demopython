@@ -1,9 +1,13 @@
+setup:
+	@echo "Installing dependencies..."
+	python -m pip install -r requirements.txt
+	
 run:
 	python hello_world.py
 
 test:
 	python -c "import hello_world; assert hello_world.greet() == 'Hello, World!'"
-	python -c "import hello_world; assert hello_world.greet() == 'Hello, Alice!'"
+	python -c "import hello_world; assert hello_world.greet('Alice') == 'Hello, Alice!'"
 help:
 	@echo "Makefile commands:"
 	@echo "  run   - Run the hello-world.py script"

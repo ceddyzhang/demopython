@@ -61,8 +61,15 @@ my_df['running_sum']=my_df.groupby(by=['users'])['values'].cumsum().reset_index(
 my_df['value_rank'] = my_df.sort_values(by=['values'],ascending=[False]).groupby(by=['users'])['values'].rank().reset_index(drop=True)
 print(my_df)
 """
-
+"""
 df1 = pd.DataFrame({"A": [0, 0], "B": [None, 4]})
 df2 = pd.DataFrame({"C": [1, 1], "D": [3, 3]})
 ans = pd.concat([df1, df2], axis=1)
 print(ans)
+"""
+
+
+tiktok_events_df = [{'user_id':1,'order_id':'a','event_time':'2026-01-01','status':'SUCCESS','amount':pd.NA},
+                    {'user_id':2,'order_id':'a','event_time':'2026-01-02','status':'FAILED','amount':20},
+                    {'user_id':3,'order_id':'b','event_time':'2026-01-03','status':'SUCCESS','amount':100}
+                    ]
